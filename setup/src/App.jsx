@@ -4,7 +4,7 @@ import React from "react";
 // import { Counter } from "./components/Counter";
 // import Comp from './components/Comp';
 import  Profile   from './components/Profile'
-
+import Nestedif   from "./components/nestedif";
 
 export const App = () => {
   return (
@@ -14,6 +14,7 @@ export const App = () => {
       <Comp />
       <Counter /> */}
       <Profile />
+      <Nestedif />
       
     </>
   );
