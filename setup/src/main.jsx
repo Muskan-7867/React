@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {App} from './App.jsx'
-import './index.css'
+// ⛔️ Warning: You are importing createRoot from "react-dom"
+// which is not supported. You should instead
+// import it from "react-dom/client"
+import {StrictMode} from 'react';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+import {createRoot} from 'react-dom'; // 👈️ wrong import path
+import {App} from './App';
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </StrictMode>,
+);
