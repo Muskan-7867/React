@@ -1,15 +1,12 @@
 import React from 'react';
-import { Navbar } from './component/Navbar'
+
 import { Input } from './component/Input';
-
-
-
-
+import {Form}  from './component/Form'
 function App() {
   return (
     <>
       
-      <Input />
+      <Form />
       
     </>
   );
