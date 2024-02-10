@@ -7,6 +7,7 @@ import { Movies } from './component/Movies';
 import { Fragment } from './component/Fragment';
 import Lifting from "../../react2/src/component/Lifting";
 import './App.css';
+import { Usememo } from './component/Usememo';
 
 
 
@@ -17,9 +18,9 @@ function App() {
   return (
     <>
       <div>
-        <h1>Pass data from child to parent</h1>
+        <h1 className='text-3xl font-bold'>UseMemo</h1>
      
-      <Lifting alert={parentalert} />
+      <Usememo />
       </div>
     </>
   );
