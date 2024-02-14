@@ -1,8 +1,13 @@
-import React from 'react'
+// About.js
+import React from 'react';
 
-export const Home = () => {
+function Home() {
   return (
-    <div>Home page</div>
-  )
+    <div>
+      <h2>HomePage</h2>
+      <p>This is the home page content.</p>
+    </div>
+  );
 }
-export default Home
+
+export default Home;

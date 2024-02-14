@@ -1,8 +1,13 @@
-import React from 'react'
+// About.js
+import React from 'react';
 
-export const About = () => {
+function About() {
   return (
-    <div>About page</div>
-  )
+    <div>
+      <h2>About Page</h2>
+      <p>This is the about page content.</p>
+    </div>
+  );
 }
-export default About
+
+export default About;
