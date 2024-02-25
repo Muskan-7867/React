@@ -5,6 +5,7 @@ import { Getaxios } from './components/Getaxios';
 
 
 import './App.css'
+import Postaxios from './components/Postaxios';
 
 
 
@@ -13,7 +14,7 @@ function App() {
     <>
     
   
-    <Getaxios/>
+    <Postaxios/>
  
       
     </>
