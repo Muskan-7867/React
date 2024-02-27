@@ -3,6 +3,7 @@ import Home from './Home';
 import About from './About';
 import Navbar from './Navbar';
 import Page404 from './Page404';
+import { Param } from './Param';
 
 function Links() {
     return (
@@ -14,7 +15,8 @@ function Links() {
            
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/*" element={<Page404 />} />
+            <Route path='/Param/:name' element={<Param />} />
+            
           </Routes>
         </BrowserRouter>
       

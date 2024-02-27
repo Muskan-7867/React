@@ -8,6 +8,10 @@ function Navbar() {
       <Link to="/home">Home</Link>
       <br />
       <Link to="/about">About</Link>
+      <br/>
+      <Link to="/Param/anil">anil</Link>
+      <br/>
+      <Link to="/Param/peter">peter</Link>
     </nav>
   );
 }
