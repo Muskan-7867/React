@@ -8,7 +8,7 @@ export const Navbar = () => {
       <div className="flex flex-col lg:flex-row justify-between items-center mx-auto lg:mx-0">
         <div className="flex justify-between items-center gap-2 mr-4">
           <img src="/jio.png" width={37} alt="Jio Logo" />
-          <Link to="/" className="font-extrabold text-lg">
+          <Link to="/" className="font-bold  no-underline  text-black text-lg">
             Jiosavan
           </Link>
         </div>
