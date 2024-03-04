@@ -1,9 +1,9 @@
 import React from 'react';
-import Weather from './component/Weather';
 
 
-
-
+import Weather  from './component/Weather'
+import Card from './component/Card';
+import { Localstorage } from './component/Localstorage';
 function App() {
   return (
     <>
@@ -14,7 +14,7 @@ function App() {
           <Route path="/about" element={<h1>about page</h1>} />
         </Routes>
       </BrowserRouter> */}
-      <Weather />
+      <Localstorage />
       
     </>
   );
