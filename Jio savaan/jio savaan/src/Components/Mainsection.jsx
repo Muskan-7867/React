@@ -27,6 +27,12 @@ export const Mainsection = () => {
     );
 
     return (
-       <Slider data={trendingAlbums} />
+        <section className="my-20">
+            <h2 className="text-gray-700 font-semibold text-xl px-5 py-3 w-full  mx-auto lg:w-[78vw]">Trending Now</h2>
+           <Slider data={trendingAlbums} />
+           <h2 className="text-gray-700 font-semibold text-xl px-5 py-3 w-full
+             mx-auto lg:w-[78vw]">Top Albums</h2>
+             < Slider data={albums} />
+       </section>
     );
 };
