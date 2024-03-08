@@ -8,5 +8,16 @@
 }
 body{
     font-family: "Roboto", sans-serif;
-    background-color: #f5f5f5ff;
+    /* background-color: #f5f5f5ff; */
+}
+.scroll-hide{
+    scroll-behavior: smooth;
+    transition: scroll-snap-type 0.5s cubic-bezier(0.645,0.045,0.355,1);
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 20px;
+    animation-delay: 0.5s;
+}
+.scroll-hide::-webkit-scrollbar {
+ width: 0px;
+ background-color: transparent;/* Webkit-based browsers */
 }

@@ -11,7 +11,7 @@ export const Volumecontroller = ( {isvolumevisible} ) => {
         min={0}
         max={100}
         step="0.1"
-        value={0}
+        
         className="text-green-400 h-[5px] range"
       />
     </div>
