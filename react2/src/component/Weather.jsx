@@ -6,6 +6,7 @@ import Card from './Card';
 export const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [showSearchBar, setShowSearchBar] = useState(true); // State to control the visibility of the search bar
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,6 +14,7 @@ export const Weather = () => {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7d2620260bc65f1da55df07eafb0b41b`);
       const data = await response.json();
       setWeatherData(data);
+      setShowSearchBar(false); // Hide the search bar when weather data is fetched
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
@@ -36,22 +38,24 @@ export const Weather = () => {
           </button>
         </div>
       </nav>
-      <form onSubmit={handleSubmit}>
-        <div className='flex justify-center items-center mt-8 relative'>
-          <input
-            className="rounded-full py-2 pl-10 pr-16 text-xl font-semibold text-gray-700 leading-tight focus:outline-none shadow-lg w-96"
-            type="text"
-            placeholder="Enter City Name"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-          <button type="submit" className="absolute right-0 top-0 bottom-0 bg-blue-600 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none">
-            <FaSearch />
-          </button>
-        </div>
-      </form>
-      {weatherData && <Card weather={weatherData} city={city}  />}
+      {showSearchBar && ( 
+        <form onSubmit={handleSubmit}>
+          <div className='flex justify-center items-center mt-8 relative'>
+            <input
+              className="rounded-full py-2 pl-10 pr-16 text-xl font-semibold text-gray-700 leading-tight focus:outline-none shadow-lg w-96"
+              type="text"
+              placeholder="Enter City Name"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            <button type="submit" className="absolute right-0 top-0 bottom-0 bg-blue-600 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none">
+              <FaSearch />
+            </button>
+          </div>
+        </form>
+      )}
+      {weatherData && <Card weather={weatherData} city={city} />}
     </div>
   );
 };
