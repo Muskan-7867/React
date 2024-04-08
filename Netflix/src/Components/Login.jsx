@@ -18,6 +18,9 @@ setisSigninform(!isSigninform);
         <h1 className='text-white text-3xl font-bold mb-6'>
           { isSigninform ? "Sign-In" : "Sign-Up" }
         </h1>
+        {!isSigninform && (<input type='text' placeholder='Full-Name' 
+        className='py-4 px-4 mt-4 mb-4 w-full bg-gray-800 text-white border border-gray-700 rounded'></input>)}
+
         <input type='text' placeholder='Email-Address' className='py-4 px-4 mt-4 mb-4 w-full bg-gray-800 text-white border border-gray-700 rounded'></input>
         <input type='password' placeholder='Password' className='py-4 px-4 mt-6 mb-4 w-full bg-gray-800 text-white border border-gray-700 rounded'></input>
         <button className='py-2 px-4 bg-red-700 mt-6 text-white w-full rounded hover:bg-red-600'>
