@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';   //component initialization
 import Header from './Header';
 import { checkValidData } from './validate';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '/src/firebaseConfig';
 
 export const Login = () => {
@@ -34,9 +35,19 @@ export const Login = () => {
           const errorMessage = error.message;
           setError(errorCode + " - " + errorMessage);
         });
-    } else {
-      // Add sign-in logic here
-      console.log("Sign-in logic not implemented yet");
+    } else {                           // Add sign-in logic here
+      
+      signInWithEmailAndPassword(auth, emailValue, passwordValue)
+  .then((userCredential) => {
+   const user = userCredential.user;
+    console.log(user)
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorCode + " - " + errorMessage);
+  });
+
     }
   }
 
