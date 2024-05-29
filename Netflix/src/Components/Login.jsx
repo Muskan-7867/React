@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';   //component initialization
 import Header from './Header';
-import { checkValidData } from './validate';
+import { checkValidData } from '../../utills/validate';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '/src/firebaseConfig';
+import { auth } from '../../utills/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [isSigninform, setisSigninform] = useState(true);        //states and references
   const [error, setError] = useState(null);
   const email = useRef(null);
@@ -23,11 +25,12 @@ export const Login = () => {
     setError(message);
     if (message) return;
 
-    if (!isSigninform) {
+    if (!isSigninform) {  //sign up user
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
+          navigate("/browse")
           // Additional code to handle successful sign-up
         })
         .catch((error) => {
@@ -41,6 +44,8 @@ export const Login = () => {
   .then((userCredential) => {
    const user = userCredential.user;
     console.log(user)
+    navigate("/browse")
+    
   })
   .catch((error) => {
     const errorCode = error.code;
