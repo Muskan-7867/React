@@ -27,8 +27,8 @@ useEffect(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
     
-      const {uid,email} = user;
-      dispatch(addUser({uid,email}))
+      const {uid,email,photoURL,displayName} = user;
+      dispatch(addUser({uid, email, photoURL:photoURL,displayName}))
       
       // ...
     } else {
