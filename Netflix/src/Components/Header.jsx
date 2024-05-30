@@ -1,32 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {  signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from '../../utills/firebaseConfig';
+
 export const Header = () => {
   const navigate = useNavigate();
-  const handleSignOut= () => {
-    signOut(auth)
-    .then(() => {
-      navigate('/')
-    }).catch((error) => {
-      navigate('/error')
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
     });
-    
+    return () => unsubscribe();
+  }, []);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigate('/');
+      }).catch((error) => {
+        navigate('/error');
+      });
   }
+
   return (
-    <>
-   <div className='absolute w-screen px-8 py-2 bg-gradient-to-b flex justify-between from-black z-10'>
-    <img  className='w-44 h-32'src='src/assets/netflixlogo.png' alt="Netflix Logo" />
-   
-
-   <div className='flex p-8 ' >
-    <img  className='h-14 w-14 ' src='https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg' />
-    <button  onClick={handleSignOut} className='bg-red-600  ml-4 p-4 font-bold text-white rounded-lg '>Sign Out</button>
-   </div>
-   </div>
-
-   </>
-   
+    <div className='absolute w-screen px-8 py-2 bg-gradient-to-b flex justify-between from-black z-10'>
+      <img className='w-44 h-32' src='src/assets/netflixlogo.png' alt="Netflix Logo" />
+      <div className='flex p-8'>
+        {user ? (
+          <>
+            <img className='h-14 w-14 rounded-full' src={user.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName)}&color=fff`} alt="Profile" />
+            <button onClick={handleSignOut} className='bg-red-600 ml-4 p-4 font-bold text-white rounded-lg'>Sign Out</button>
+          </>
+        ) : (
+          <button onClick={() => navigate('/login')} className='bg-red-600 ml-4 p-4 font-bold text-white rounded-lg'>Sign In</button>
+        )}
+      </div>
+    </div>
   );
 };
 
