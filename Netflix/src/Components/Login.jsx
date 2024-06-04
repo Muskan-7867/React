@@ -3,11 +3,11 @@ import Header from './Header';
 import { checkValidData } from '../../utills/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../../utills/firebaseConfig';
-import { useNavigate } from 'react-router-dom';
+
 
 
 export const Login = () => {
-  const navigate = useNavigate();
+
   const [isSigninform, setisSigninform] = useState(true);
   const [error, setError] = useState(null);
   const email = useRef(null);
@@ -26,14 +26,14 @@ export const Login = () => {
     if (message) return;
 
     if (!isSigninform) {
-      createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+      createUserWithEmailAndPassword(auth, emailValue, passwordValue)   //sign up 
         .then((userCredential) => {
           const user = userCredential.user;
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
             photoURL: `https://ui-avatars.com/api/?name=${encodeURIComponent(name.current.value)}&color=fff`
           }).then(() => {
-            navigate("/browse");
+           
           }).catch((error) => {
             console.error(error);
           });
@@ -46,11 +46,10 @@ export const Login = () => {
           setError(errorCode + " - " + errorMessage);
         });
     } else {
-      signInWithEmailAndPassword(auth, emailValue, passwordValue)
+      signInWithEmailAndPassword(auth, emailValue, passwordValue)     // sign in logic
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          
         })
         .catch((error) => {
           const errorCode = error.code;
