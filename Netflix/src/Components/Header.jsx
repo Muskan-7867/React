@@ -6,10 +6,11 @@ import { onAuthStateChanged } from "firebase/auth";
 
 import { addUser, removeuser } from '../../utills/userSlice';
 import { useDispatch } from 'react-redux';
+import { LOGO } from '../../utills/constants';
 
 
 export const Header = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -24,37 +25,31 @@ export const Header = () => {
     return () => unsubscribe();
   }, []);
 
-  useEffect(() => {           //all routing placed here
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-      
-        const {uid,email,photoURL,displayName} = user;
-        dispatch(addUser({uid, email, photoURL:photoURL,displayName}))
-        navigate('/browse')
-        
-        // ...
+        const { uid, email, photoURL, displayName } = user;
+        dispatch(addUser({ uid, email, photoURL: photoURL, displayName }));
+        navigate('/browse');
       } else {
-        // User is signed out
         dispatch(removeuser());
-        navigate('/')
-        
+        navigate('/');
       }
     });
-    
-  })
+  }, [dispatch, navigate]);
 
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        
+        navigate('/');
       }).catch((error) => {
         navigate('/error');
       });
-  }
+  };
 
   return (
     <div className='absolute w-screen px-8 py-2 bg-gradient-to-b flex justify-between from-black z-10'>
-      <img className='w-44 h-32' src='src/assets/netflixlogo.png' alt="Netflix Logo" />
+      <img className='w-44 h-32' src={LOGO} alt="Netflix Logo" />
       <div className='flex p-8'>
         {user ? (
           <>
