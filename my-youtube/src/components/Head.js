@@ -21,9 +21,9 @@ const Head = () => {
         </div>
 
         <div className='col-span-10 text-center  px-10'>
-            <input className='w-1/2 border border-gray-500  rounded-l-full  p-2' type='text' />
+            <input className='w-1/2 border border-gray-500  rounded-l-full   p-2' type='text' />
 
-            <button className='border border-gray-500 bg-gray-100  p-2'>
+            <button className='border border-gray-500 bg-gray-100  rounded-r-full p-2'>
                  🔍
                 </button>
         </div>
