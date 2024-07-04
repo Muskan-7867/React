@@ -3,7 +3,7 @@ import Body from './components/Body'
 import Head from './components/Head'
 import { Provider } from 'react-redux'
 import store from './store/store'
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {  RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Maincontainer from './components/Maincontainer'
 import Watchpage from './components/Watchpage'
 

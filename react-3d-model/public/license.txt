@@ -1,0 +1,11 @@
+Model Information:
+* title:	CAFE RACER BIKE CG MODEL
+* source:	https://sketchfab.com/3d-models/cafe-racer-bike-cg-model-6fecde3fa3d04764a19dd823f6c13701
+* author:	akhalas (https://sketchfab.com/akhalas)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "CAFE RACER BIKE CG MODEL" (https://sketchfab.com/3d-models/cafe-racer-bike-cg-model-6fecde3fa3d04764a19dd823f6c13701) by akhalas (https://sketchfab.com/akhalas) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

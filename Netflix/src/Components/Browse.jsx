@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react'
-import Header from './Header';
-import { json } from 'react-router-dom';
-import { API_options } from '../../utills/constants';
+import React, { useEffect } from "react";
+import Header from "./Header";
+import useNowPLayingMovies from "../hooks/useNowPlayingMovies.jsx";
+import Maincontainer from "./Maincontainer";
+import Secondarycontainer from "./Secondarycontainer";
+import usePopularMovies from "../hooks/usePopularMovies.jsx";
+import useUpComingMovies from "../hooks/useUpComingMovies.jsx";
+import Gptsearch from "./Gptsearchpage.jsx";
+import { useSelector } from "react-redux";
 
 export const Browse = () => {
-  const getNowPlayingMovies = async  () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', API_options)
-    const json =  await data.json();
-    console.log(json)
-  }
+  const showgptsearch = useSelector((store) => store.gpt.showgptsearch);
+  useNowPLayingMovies();
+  usePopularMovies();
+  useUpComingMovies();
 
-  useEffect(() => {
-    getNowPlayingMovies();
-  },[])
   return (
-    <div>
-        <Header />
+    <div className="no-scrollbar">
+      <Header />
+      {showgptsearch ? (
+        <Gptsearch />
+      ) : (
+        <>
+          <Maincontainer />
+          <Secondarycontainer />
+        </>
+      )}
+     
     </div>
-  )
-}
+  );
+};
 export default Browse;
