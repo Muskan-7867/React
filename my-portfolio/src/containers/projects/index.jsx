@@ -2,25 +2,44 @@ import React from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
 import Pageheader from "../../components/pageheader";
 
-
-
 const projectsData = [
   {
     title: "Netflix",
     thumbnail: "src/images/n.jpg",
     githubLink: "https://github.com/Muskan-7867/Netflix-Clone.git",
+    vercelLink: "https://netflix-clone-xi-ruddy.vercel.app/",
   },
-  {
-    title: "Todo-App",
-    thumbnail: todoThumbnail,
-    githubLink: "https://github.com/yourusername/project-two",
-  },
+ 
   {
     title: "YouTube",
-    thumbnail: youtubeThumbnail,
-    githubLink: "https://github.com/yourusername/project-three",
+    thumbnail: "src/images/yt.jpg",
+    githubLink: "https://github.com/Muskan-7867/MY-youtube.git",
+    vercelLink: "https://your-vercel-url-for-youtube-project.vercel.app",
   },
-  // Add more projects as needed
+  {
+    title: "Stopwatch",
+    thumbnail: "src/images/stopwatch.jpeg",
+    githubLink: "https://github.com/Muskan-7867/Stopwatch.git",
+    vercelLink: "https://your-vercel-url-for-stopwatch.vercel.app",
+  },
+  {
+    title: "Tic-Tac-Toe",
+    thumbnail: "src/images/tic tac.jpg",
+    githubLink: "https://github.com/Muskan-7867/Dragable-tic-tac-game.git",
+    vercelLink: "https://your-vercel-url-for-tic-tac-toe.vercel.app",
+  },
+  {
+    title: "Weather-App",
+    thumbnail: "src/images/weather.jpg",
+    githubLink: "https://github.com/Muskan-7867/Weather-app.git",
+    vercelLink: "https://your-vercel-url-for-weather-app.vercel.app",
+  },
+  {
+    title: "CHAT-AI",
+    thumbnail: "src/images/ai.png",
+    githubLink: "https://github.com/Muskan-7867/CHAT-AI.git",
+    
+  }
 ];
 
 const Projects = () => {
@@ -32,9 +51,9 @@ const Projects = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
         {projectsData.map((project, index) => (
-          <div 
-            key={index} 
-            className="relative bg-white bg-opacity-90 shadow-md rounded-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-lg"
+          <div
+            key={index}
+            className="relative bg-white bg-opacity-90 shadow-md rounded-lg overflow-hidden group"
           >
             <img
               src={project.thumbnail}
@@ -43,16 +62,26 @@ const Projects = () => {
             />
             <div className="p-4">
               <h3 className="text-xl font-bold text-gray-800 mb-3">{project.title}</h3>
+            </div>
+            {/* Button container */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-gray-800 to-transparent">
               <a
-                href={project.githubLink}
-                className="inline-block px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-500"
+                href={project.vercelLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-block px-4 py-2 mb-2 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-500"
               >
-                View on GitHub
+                Live Demo
+              </a>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-500"
+              >
+                Visit
               </a>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent opacity-0 hover:opacity-70 transition-opacity"></div>
           </div>
         ))}
       </div>
