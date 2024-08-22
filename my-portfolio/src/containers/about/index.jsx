@@ -2,26 +2,28 @@ import React from "react";
 import Pageheader from "../../components/pageheader";
 import { BsInfoCircleFill } from "react-icons/bs";
 import RotatingCircle from "./circle";
-import ErrorBoundary from "./Errorboundary";
+import ErrorBoundary from "./ErrorBoundary";
 
 const About = () => {
   return (
     <ErrorBoundary>
-      <section className="p-8 md:p-12 lg:p-16">
+      <section className="p-8 md:p-12 lg:p-16 mb-2"> {/* Decreased margin-bottom */}
         <Pageheader headertext="About Me" icon={<BsInfoCircleFill size={30} />} />
       </section>
-      <div className="flex flex-col md:flex-row justify-between items-start px-4 md:px-8 lg:px-16 text-white space-y-8 md:space-y-0">
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 px-4 md:px-8 lg:px-16 text-white">
         {/* Left Content */}
-        <div className="flex flex-col items-start space-y-8 md:space-y-6 lg:space-y-8 w-full md:w-3/4 lg:w-2/3">
-          <h3 className="text-orange-500 font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl animate-slide-in-left">
+        <div className="col-span-2 space-y-4 md:space-y-5 lg:space-y-8">
+          
+          <h3 className="text-[#A52A2A] font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
             Front End Developer
           </h3>
-          <p className="text-left text-sm md:text-base lg:text-lg xl:text-xl w-full md:w-4/5 lg:w-3/4 pb-2 mb-8 border-b-2 border-orange-500 animate-slide-in-left delay-200">
+          <p className="text-left text-sm md:text-base lg:text-lg xl:text-xl pb-1 border-b-2 border-[#A52A2A]-500 text-[#A52A2A]">
             Experienced front-end developer with a keen eye for design and a strong foundation in creating responsive, visually appealing websites. Proficient in HTML, CSS, JavaScript, and frameworks like React, I specialize in transforming complex designs into functional, interactive user interfaces. Committed to optimizing user experience and ensuring cross-browser compatibility, I combine technical expertise with a passion for innovation to deliver high-quality web solutions.
           </p>
-          <div className="animate-slideInRight mt-5">
-            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl  font-semibold text-orange-500 mb-4">Personal Information</h2>
-            <ul className="space-y-2 text-white text-sm md:text-base">
+          <div className="mt-4">
+            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-[#A52A2A] mb-3">Personal Information</h2>
+            <ul className="space-y-2 text-[#A52A2A] text-sm md:text-base">
               <li>
                 <span className="font-bold">Name:</span>
                 <span className="ml-2">John Doe</span>
@@ -45,8 +47,9 @@ const About = () => {
             </ul>
           </div>
         </div>
+        
         {/* Right Icons */}
-        <div className="flex justify-center items-center mt-8 md:mt-0">
+        <div className="flex justify-center items-center">
           <RotatingCircle size={180} />
         </div>
       </div>
