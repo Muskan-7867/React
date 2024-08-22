@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gray-700 flex items-center justify-between h-[80px] px-5">
+    <div className="navbar bg-[#A52A2A] flex items-center justify-between h-[80px] px-5">
       <Link to="/" className="text-white flex items-center logo">
         <FaReact size={30} />
       </Link>
@@ -39,14 +39,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-[80px] right-0 bg-gray-700 w-full text-center">
-          <ul className="list-none p-6 mobile-links">
-            <li><Link to="/" className="block py-2 text-white nav-link" onClick={toggleMenu}>HOME</Link></li>
-            <li><Link to="/about" className="block py-2 text-white nav-link" onClick={toggleMenu}>ABOUT</Link></li>
-            <li><Link to="/skills" className="block py-2 text-white nav-link" onClick={toggleMenu}>SKILLS</Link></li>
-            <li><Link to="/resume" className="block py-2 text-white nav-link" onClick={toggleMenu}>RESUME</Link></li>
-            <li><Link to="/projects" className="block py-2 text-white nav-link" onClick={toggleMenu}>PROJECTS</Link></li> {/* Corrected route */}
-            <li><Link to="/contact" className="block py-2 text-white nav-link" onClick={toggleMenu}>CONTACT</Link></li>
+        <div className="md:hidden absolute top-[80px] right-0 bg-custom  w-full text-center">
+          <ul className="list-none p-6 mobile-links ">
+            <li><Link to="/" className="block py-2  nav-link" onClick={toggleMenu}>HOME</Link></li>
+            <li><Link to="/about" className="block py-2  nav-link" onClick={toggleMenu}>ABOUT</Link></li>
+            <li><Link to="/skills" className="block py-2  nav-link" onClick={toggleMenu}>SKILLS</Link></li>
+            <li><Link to="/resume" className="block py-2  nav-link" onClick={toggleMenu}>RESUME</Link></li>
+            <li><Link to="/projects" className="block py-2  nav-link" onClick={toggleMenu}>PROJECTS</Link></li> {/* Corrected route */}
+            <li><Link to="/contact" className="block py-2  nav-link" onClick={toggleMenu}>CONTACT</Link></li>
           </ul>
         </div>
       )}
