@@ -6,7 +6,11 @@
   @keyframes blink {
     50% { border-color: transparent; }
   }
-  
+
+.bg-custom {
+  background-color: #FFDFC4;
+}
+
   .typing-effect {
     display: inline-block;
     overflow: hidden;
