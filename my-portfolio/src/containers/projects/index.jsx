@@ -1,5 +1,5 @@
 import React from "react";
-import { BsInfoCircleFill } from "react-icons/bs";
+import { BsLaptop } from "react-icons/bs";
 import Pageheader from "../../components/pageheader";
 
 const projectsData = [
@@ -47,21 +47,21 @@ const Projects = () => {
     <section className="p-8 bg-transparent">
       <Pageheader
         headertext="My Projects"
-        icon={<BsInfoCircleFill size={30} />}
+        icon={<BsLaptop size={30} />}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 animate-slide-in-left ">
         {projectsData.map((project, index) => (
           <div
             key={index}
-            className="relative bg-white bg-opacity-90 shadow-md rounded-lg overflow-hidden group"
+            className="relative  bg-opacity-90 shadow-md rounded-lg overflow-hidden group"
           >
             <img
               src={project.thumbnail}
               alt={project.title}
               className="w-full h-48 object-cover"
             />
-            <div className="p-4">
-              <h3 className="text-xl font-bold text-gray-800 mb-3">{project.title}</h3>
+            <div className="p-4 animate-slideInRight">
+              <h3 className="text-xl font-bold text-[#A52A2A] mb-3">{project.title}</h3>
             </div>
             {/* Button container */}
             <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-gray-800 to-transparent">
