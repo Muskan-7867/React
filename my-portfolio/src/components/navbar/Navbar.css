@@ -59,7 +59,7 @@
   .nav-link {
     position: relative;
     text-decoration: none;
-    color: #A52A2A;
+    color: #FFDFC4;
     transition: color 0.3s ease, transform 0.3s ease;
   }
   
@@ -77,13 +77,14 @@
   }
   
   .nav-link:hover {
-    color:#A52A2A ;
+    
     transform: translateY(-2px);
   }
   
   .nav-link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+
   }
   
   /* Mobile menu styles */

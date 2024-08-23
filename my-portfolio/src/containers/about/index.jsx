@@ -2,7 +2,7 @@ import React from "react";
 import Pageheader from "../../components/pageheader";
 import { BsInfoCircleFill } from "react-icons/bs";
 import RotatingCircle from "./circle";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "./Errorboundary"
 
 const About = () => {
   return (
